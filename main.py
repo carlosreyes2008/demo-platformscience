@@ -1,9 +1,12 @@
 import sys
+import os
 import classes.fileHandler as FileHandler
 import classes.inputHandler as InputHandler
 
 from classes.dataAnalyzer import DataAnalyzer
 
+TEMPLATE_DELIVERIES = f"{os.path.dirname(__file__)}\\deliveries.csv"
+TEMPLATE_DRIVERS = f"{os.path.dirname(__file__)}\\drivers.csv"
 
 print("Executing Main Program: Platform Science Demo")
 
@@ -16,8 +19,8 @@ if filesReady == False:
 
     if requireTemplates:
         targetDirectory = FileHandler.FilePath("Enter target directory to copy the templates:")
-        FileHandler.CopyFile("deliveries.csv", targetDirectory + "\\deliveriesTemplate.csv")
-        FileHandler.CopyFile("drivers.csv", targetDirectory + "\\driversTemplate.csv")
+        FileHandler.CopyFile(TEMPLATE_DELIVERIES, targetDirectory + "\\deliveriesTemplate.csv")
+        FileHandler.CopyFile(TEMPLATE_DRIVERS, targetDirectory + "\\driversTemplate.csv")
         print(f"Templates copied to: \n{targetDirectory}\\")
     
     print("Run the main program again when files ready. \nShuting down")
